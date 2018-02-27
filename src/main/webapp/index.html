@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JUST TEST</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/piwiktrack.js"></script>
+    <script src="js/test.js"></script>
+</head>
+<body>
+<center>
+    <h1>test</h1>
+    <div>
+        <table width="50%" style="text-align: center">
+            <tr>
+                <td>继续请求远程主机：<input type="text" value="10.31.22.177:6021/testpiwik" id="hostPort"></td>
+                <td>
+                    <button type="button" onclick="test()">提交请求1</button>
+                </td>
+                <td>
+                    <button type="button" onclick="test()">提交请求2</button>
+                </td>
+                <td>
+                    <button type="button" onclick="test()">提交请求3</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+        <table width="80%" border="0" style="text-align: left">
+            <tr>
+                <td width="10%"><h4>
+                    <span id="pinpointTit"></span>
+                </h4></td>
+                <td width="45%"><h4>
+                    <span id="pinpointTim"></span>
+                </h4></td>
+                <td width="45%"><h4>
+                    <span id="pinpointRes"></span>
+                </h4></td>
+            </tr>
+            <tr>
+                <td width="10%"><h4>
+                    <span id="piwikTit"></span>
+                </h4></td>
+                <td width="45%"><h4>
+                    <span id="piwikTim"></span>
+                </h4></td>
+                <td width="45%"><h4>
+                    <span id="piwikRes"></span>
+                </h4></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table width="80%" border="0" style="text-align: left">
+            <tr>
+                <td width="10%"><h4>
+                    <span id="dataTit"></span>
+                </h4></td>
+                <td width="45%"><h4>
+                    <span id="dataRes"></span>
+                </h4></td>
+                <td width="45%"><h4>
+                    <span id="dataMsg"></span>
+                </h4></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table width="80%" border="0" style="text-align: left">
+            <tr>
+                <td width="10%"><h4>姓名</h4></td>
+                <td width="25%"><input type="text" id="userName"></td>
+                <td width="10%"><h4>工号</h4></td>
+                <td width="25%"><input type="text" id="userId"></td>
+                <td width="15%">
+                    <button onclick="login()">登录</button>
+                </td>
+                <td width="15%">
+                    <button onclick="logout()">清除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <input type="text" value="出错了！" id="errormsg">&nbsp;&nbsp;&nbsp;<button onclick="makeError()">制造一个错误！</button>
+    </div>
+</center>
+</body>
+</html>
