@@ -21,7 +21,11 @@
 		<param-name>logbackConfigLocation</param-name>
 		<param-value>classpath:/logback.xml</param-value>
 	</context-param>
-	<listener>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/WEB-INF/weblogic.xml</param-value>
+    </context-param>
+    <listener>
 		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
 	</listener>
 	<!-- 字符集过滤器 -->
@@ -64,12 +68,21 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet-mapping>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
 		<servlet-name>contacts</servlet-name>
 		<url-pattern>/web/*</url-pattern>
 	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
-	<welcome-file-list>
+    <welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 </web-app>
