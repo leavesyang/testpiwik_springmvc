@@ -29,7 +29,7 @@
         <!--for further documentation -->
         <Encoding>UTF-8</Encoding>
         <encoder>
-            <pattern>%d %p [%t] [%c]:%L - %m%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | LOGBACK | %hostName | %ip | %5p | %X{PtxId} | %c{1}:%L - %m%n</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>

@@ -26,8 +26,8 @@ public class IndexController {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private org.apache.log4j.Logger log4j = org.apache.log4j.Logger.getLogger(this.getClass().getName());
-    private org.slf4j.Logger logback = org.slf4j.LoggerFactory.getLogger(IndexController.class);
+        private org.apache.log4j.Logger log4j = org.apache.log4j.Logger.getLogger(this.getClass().getName());
+        private org.slf4j.Logger logback = org.slf4j.LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
     ApiService apiService;

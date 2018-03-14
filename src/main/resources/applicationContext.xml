@@ -12,8 +12,12 @@
 	<context:component-scan base-package="com.yang" />
 
 	<!-- 配置读取外部配置文件 -->
+<<<<<<< HEAD
 	<context:property-placeholder location="classpath:*.properties" />
 
+=======
+	<context:property-placeholder location="classpath:httpclient.properties,classpath:jdbc.properties,classpath:log4j.properties" />
+>>>>>>> v0.3
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
 		p:url="jdbc\:mysql\://10.31.31.128\:3308/bitnami_piwik?characterEncoding\=utf-8" p:username="root" p:password="piwik123" />

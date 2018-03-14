@@ -1,4 +1,12 @@
 /* 发送ajax请求，用于测试 */
+
+$(function () {
+    $("#hostPort").val("");
+})
+
+sessionStorage.setItem("userId", "123456");
+sessionStorage.setItem("userName", "老王");
+
 function test() {
     $("#pi*").text("");
     $.ajax({
