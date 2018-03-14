@@ -12,15 +12,10 @@
 	<context:component-scan base-package="com.yang" />
 
 	<!-- 配置读取外部配置文件 -->
-<<<<<<< HEAD
-	<context:property-placeholder location="classpath:*.properties" />
-
-=======
 	<context:property-placeholder location="classpath:httpclient.properties,classpath:jdbc.properties,classpath:log4j.properties" />
->>>>>>> v0.3
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc\:mysql\://10.31.31.128\:3308/bitnami_piwik?characterEncoding\=utf-8" p:username="root" p:password="piwik123" />
+		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
 	<context:annotation-config /> <!-- 此行语句使得resource autowired 等四个注解可以使用 -->
 
 	<!-- 实例化jdbcTemplate,同时注入数据源 -->
@@ -40,9 +35,9 @@
 	<bean id="poolingHttpClientConnectionManager"
 		class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager">
 		<!-- 最大连接数 -->
-		<property name="maxTotal" value="200" />
+		<property name="maxTotal" value="${http.maxTotal}" />
 		<!-- 设置每个主机的并发数 -->
-		<property name="defaultMaxPerRoute" value="50" />
+		<property name="defaultMaxPerRoute" value="${http.defaultMaxPerRoute}" />
 	</bean>
 
 	<!-- HttpClient对象的构建器 -->
@@ -57,13 +52,13 @@
 	<!-- 请求配置的构建器 -->
 	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig.Builder">
 		<!-- 创建连接的最长时间 -->
-		<property name="connectTimeout" value="1000" />
+		<property name="connectTimeout" value="${http.connectTimeout}" />
 		<!-- 从连接池中获取到连接的最长时间 -->
-		<property name="connectionRequestTimeout" value="500" />
+		<property name="connectionRequestTimeout" value="${http.connectionRequestTimeout}" />
 		<!-- 数据传输的最长时间 -->
-		<property name="socketTimeout" value="10000" />
+		<property name="socketTimeout" value="${http.socketTimeout}" />
 		<!-- 提交请求前测试连接是否可用 -->
-		<property name="staleConnectionCheckEnabled" value="true" />
+		<property name="staleConnectionCheckEnabled" value="${http.staleConnectionCheckEnabled}" />
 	</bean>
 
 	<!-- RequestConfig对象 -->
