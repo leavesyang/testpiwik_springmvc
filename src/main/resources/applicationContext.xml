@@ -12,7 +12,7 @@
 	<context:component-scan base-package="com.yang" />
 
 	<!-- 配置读取外部配置文件 -->
-	<context:property-placeholder location="classpath:*.properties" />
+	<context:property-placeholder location="classpath:httpclient.properties,classpath:jdbc.properties,classpath:log4j.properties" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
 		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
