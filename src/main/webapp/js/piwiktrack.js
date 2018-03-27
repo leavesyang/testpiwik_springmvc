@@ -9,6 +9,7 @@
 
 
 var idsite = '10'; // 网站id，从piwik服务器注册。
+var systemName = 'testpiwik'; // 系统名称，用户自己设定
 
 /* piwik初始化 */
 var _paq = _paq || [];
@@ -30,6 +31,7 @@ trackPageView();
 function trackPageView() {
     _paq.push(['setUserId', getUserInfo()]); // 用户工号作为userID
     _paq.push(['setCustomDimension', 1, getUserInfo()]); // 用户工号
+    _paq.push(['setCustomUrl', window.location.href.split("?")[0]]); //排除get请求时地址栏带参数的情况
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
 }
@@ -68,7 +70,7 @@ window.addEventListener('click', function (e) {
 
 /* 获取txId,用于pinpoint */
 function getTraceId_pinpoint() {
-    var agentId = "USER-" + getUserId();
+    var agentId = "U-" + systemName + "-" + getUserId();
     var timeMark = sessionStorage.getItem("timeMark");
     if (!timeMark) {
         timeMark = new Date().getTime();
@@ -82,22 +84,22 @@ function getTraceId_pinpoint() {
         serialNumber = parseInt(serialNumber) + 1;
         sessionStorage.setItem("serialNumber", serialNumber);
     }
-    var testHeader = agentId + "^" + timeMark + "^" + serialNumber;
-    return testHeader;
+    var traceId = agentId + "^" + timeMark + "^" + serialNumber;
+    return traceId;
 }
 
 /* 获取txId,用于piwik */
 function getTraceId_piwik() {
-    var testHeader;
-    var agentId = "USER-" + getUserId();
+    var traceId;
+    var agentId = "U-" + systemName + "-" + getUserId();
     var timeMark = sessionStorage.getItem("timeMark");
     if (timeMark) {
         var serialNumber = sessionStorage.getItem("serialNumber");
         if (serialNumber) {
-            testHeader = agentId + "^" + timeMark + "^" + serialNumber;
+            traceId = agentId + "^" + timeMark + "^" + serialNumber;
         }
     }
-    return testHeader;
+    return traceId;
 }
 
 /* 获取用户信息，姓名-工号 */
@@ -144,6 +146,6 @@ window.onerror = function (errorMessage, scriptURI, lineNumber, columnNumber,
             _paq.push(['setCustomDimension', 3, traceId]);
         }
         _paq.push(['setCustomDimension', 2, stack]);
-        _paq.push(['trackEvent', "JS_ERROR", stack]);
+        _paq.push(['trackEvent', "JS_ERROR", msg, stack]);
     }, 0);
 }

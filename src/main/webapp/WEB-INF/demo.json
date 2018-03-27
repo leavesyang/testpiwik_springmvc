@@ -1,0 +1,28 @@
+[
+  {
+    "userInfo": "老王-123456",
+    "ip": "XXX.XXX.XXX.XXX",
+    "actionList": [
+      {
+        "url": "http://aaa:bb/cc",
+        "buttonText": "确定",
+        "txId": "xxx^xxx^xxx",
+        "invokeTime": "2018-03-22 11:54:22"
+      },
+      {
+        "url": "http://aaa:bb/cc",
+        "buttonText": "取消",
+        "txId": "xxx^xxx^xxx",
+        "invokeTime": "2018-03-22 11:54:28"
+      }
+    ]
+  },
+  {
+    "a": [
+      "123",
+      "123",
+      "123",
+      "123"
+    ]
+  }
+]

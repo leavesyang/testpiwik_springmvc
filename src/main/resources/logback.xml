@@ -18,7 +18,7 @@
         <Target>System.out</Target>
         <Encoding>UTF-8</Encoding>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | LOGBACK | %hostName | %ip | %5p | %X{PtxId} | %c{1}:%L - %m%n
+            <pattern>LOGBACK | %hostName | %ip | %5p | %X{PtxId} | %c:%L:%M - %m%n
             </pattern>
         </encoder>
     </appender>
